@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+i=0
+until [ "$i" -gt 10 ] # until loop executes  until the condition is tru.
+do
+	echo "Best School"; # prints best school 10 times.
+	((i++))
+done

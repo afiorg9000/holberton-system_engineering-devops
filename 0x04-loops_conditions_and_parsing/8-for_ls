@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+files="$(ls)"
+for f in $files;
+do
+	echo "$f" | cut -d "-" -f2 #cuts file in half with -.
+done
