@@ -108,7 +108,7 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  <https://imgur.com/a/3GY4zBi>
+ https://imgur.com/a/FiK7Rii
 
 **Repo:**
 
@@ -146,8 +146,8 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  <https://imgur.com/a/HCfMm18>
-
+ https://imgur.com/a/13zbFLJ
+ 
 **Repo:**
 
 -   GitHub repository: `alx-system_engineering-devops`
@@ -182,7 +182,7 @@ Please, remember that everything must be written in English to further your tech
 
 #### Add URLs here:
 
-1.  <https://imgur.com/a/qEGJy9G>
+https://imgur.com/a/pvvtJQd
 
 **Repo:**
 
