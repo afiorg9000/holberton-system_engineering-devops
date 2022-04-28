@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 # display information about subdomains.
 
-function Domain_Information() {
-	dig "$2"."$1" | awk '/ANSWER SECTION:/{getline; printf "The subdomain "$1" is a "$2" record and points to "$3"\n"}'
+function Domain_Information ()
+{
+    domain="$1"
+	subdomain="$2"
+	dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", $2, $4, $5}'
 }
 
-if [ "$#" == 1 ]
-then
-  Domain_Information "$1" "www"
-  Domain_Information "$1" "lb-01"
-  Domain_Information "$1" "web-01"
-  Domain_Information "$1" "web-02"
-elif [ "$#" == 2 ]
-then
-  Domain_Information "$1" "$2"
-fi
+for subdomain in "www" "lb-01" "web-01" "web-02"
+do
+    if [ -z "$2" ] || [ "$2" == "$subdomain" ] ;
+    then
+	Domain_Information "$1" "$subdomain"
+    fi
+done
