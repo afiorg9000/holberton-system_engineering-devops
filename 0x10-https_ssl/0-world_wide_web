@@ -2,18 +2,16 @@
 # display information about subdomains.
 
 function Domain_Information() {
-	domain="$1"
-	subdomain="$2"
-	record="$3"
-	destination="$4"
-
-	dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain "$subdomain" is a "$record" record and points to "$destination"\n"}'
+	dig "$2"."$1" | awk '/ANSWER SECTION:/{getline; printf "The subdomain "$1" is a "$2" record and points to "$3"\n"}'
 }
 
-for subdomain in "www" "lb-01" "web-01" "web-02"
-do
-    if [ -z "$2" ] ;
-    then
-	Domain_Information "$1" "$subdomain"
-    fi
-done
+if [ "$#" == 1 ]
+then
+  Domain_Information "$1" "www"
+  Domain_Information "$1" "lb-01"
+  Domain_Information "$1" "web-01"
+  Domain_Information "$1" "web-02"
+elif [ "$#" == 2 ]
+then
+  Domain_Information "$1" "$2"
+fi
