@@ -3,15 +3,20 @@
 
 function Domain_Information ()
 {
-    domain="$1"
+	domain="$1"
 	subdomain="$2"
 	dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", $2, $4, $5}'
 }
 
-for subdomain in "www" "lb-01" "web-01" "web-02"
-do
-    if [ -z "$2" ] || [ "$2" == "$subdomain" ] ;
-    then
-	Domain_Information "$1" "$subdomain"
-    fi
-done
+if [ $# == 1 ]
+then
+	Domain_Information "$1" "$2"
+else
+	for subdomain in "www" "lb-01" "web-01" "web-02"
+	do
+		if [ -z "$2" ] || [ "$2" == "$subdomain" ] ;
+		then
+			Domain_Information "$1" "$subdomain"
+		fi
+	done
+fi
