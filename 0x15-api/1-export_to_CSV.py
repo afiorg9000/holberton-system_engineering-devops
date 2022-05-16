@@ -6,7 +6,8 @@ import csv
 if __name__ == "__main__":
     user = argv[1]
     username = requests.get(
-        'https://jsonplaceholder.typicode.com/users/' + user).json().get('name')
+        'https://jsonplaceholder.typicode.com/users/'
+        + user).json().get('name')
     tasks = requests.get('https://jsonplaceholder.typicode.com/todos',
                          params={'userId': user}).json()
 
