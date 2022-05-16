@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """Gather data from an API and export it into JSON format"""
-import requests
+
 import json
+import requests
 
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
