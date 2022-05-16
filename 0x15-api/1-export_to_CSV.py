@@ -5,11 +5,10 @@ from sys import argv
 import csv
 if __name__ == "__main__":
     user = argv[1]
-    username = requests.get(
-        'https://jsonplaceholder.typicode.com/users/'
-        + user).json().get('name')
-    tasks = requests.get('https://jsonplaceholder.typicode.com/todos',
-                         params={'userId': user}).json()
+    user_url = 'https://jsonplaceholder.typicode.com/users/'
+    todos_url = 'https://jsonplaceholder.typicode.com/todos'
+    username = requests.get(user_url + user).json().get('name')
+    tasks = requests.get(todos_url, params={'userId': user}).json()
 
     with open("{}.csv".format(user), "w", newline="") as csvfile:
         my_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
