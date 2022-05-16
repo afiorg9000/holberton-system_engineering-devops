@@ -5,11 +5,11 @@ from sys import argv
 
 if __name__ == "__main__":
     user = argv[1]
-    username = requests.get('https://jsonplaceholder.typicode.com/users/'
-                            + user).json().get('name')
-    tasks = requests.get('https://jsonplaceholder.typicode.com/todos',
-                         params={'userId': user}).json()
-    completed = requests.get('https://jsonplaceholder.typicode.com/todos',
+    user_url = 'https://jsonplaceholder.typicode.com/users/'
+    todos_url = 'https://jsonplaceholder.typicode.com/todos'
+    username = requests.get(user_url + user).json().get('name')
+    tasks = requests.get(todos_url, params={'userId': user}).json()
+    completed = requests.get(todos_url,
                              params={'userId': user,
                                      'completed': 'true'}).json()
 
