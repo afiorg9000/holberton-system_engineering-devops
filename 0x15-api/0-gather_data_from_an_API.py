@@ -4,7 +4,6 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    '''Program starts here'''
     user = argv[1]
     username = requests.get('https://jsonplaceholder.typicode.com/users/'
                             + user).json().get('name')
