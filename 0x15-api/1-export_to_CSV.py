@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """Gather data from an API and export it in CSV format"""
+import csv
 import requests
 from sys import argv
-import csv
+
 if __name__ == "__main__":
     user = argv[1]
     user_url = 'https://jsonplaceholder.typicode.com/users/'
