@@ -8,9 +8,9 @@ if __name__ == "__main__":
     user_url = 'https://jsonplaceholder.typicode.com/users/'
     todos_url = 'https://jsonplaceholder.typicode.com/todos'
     username = requests.get(user_url + user).json().get('name')
-    tasks = requests.get(todos_url, params={'userId': user}).json()
+    tasks = requests.get(todos_url, params={'user': user}).json()
     completed = requests.get(todos_url,
-                             params={'userId': user,
+                             params={'user': user,
                                      'completed': 'true'}).json()
 
     print("Employee", username, "is done with tasks(" +
