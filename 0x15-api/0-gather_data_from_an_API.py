@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """Gather data from an API"""
-import requests
+
 from sys import argv
+import requests
 
 if __name__ == "__main__":
     user = argv[1]
