@@ -5,16 +5,22 @@ import json
 import requests
 
 if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com/"
-    user = requests.get(url + "user").json()
+    user_url = 'https://jsonplaceholder.typicode.com/users/'
+    todos_url = 'https://jsonplaceholder.typicode.com/todos'
+    username = requests.get(user_url).json()
+    tasks = requests.get(todos_url).json()
+    urdict = {}
+    for u in username:
+        user = u['username']
+        userlist = []
 
-    with open("todo_all_employees.json", "w") as file:
-        json.dump({u.get("id"): [{"task": t.get("title"),
-                                  "completed": t.get("completed"),
-                                  "username": u.get("username")
-                                  }
-                                 for t in requests.get(
-                                     url + "todos",
-                                     params={"userId":
-                                             u.get("id")}).json()]
-                   for u in user}, file)
+        for t in tasks:
+            userdata = {}
+            userdata['username'] = user
+            userdata['task'] = t['title']
+            userdata['completed'] = t['completed']
+            userlist.append(userdata)
+        urdict[u['id']] = userlist
+
+    with open("todo_all_employees.json", "w") as f:
+        json.dump(urdict, f)
