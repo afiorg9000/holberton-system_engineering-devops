@@ -15,4 +15,4 @@ if __name__ == "__main__":
         my_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for t in tasks:
             my_writer.writerow([user, username, t.get("completed"),
-                            t.get("title")])
+                                t.get("title")])
