@@ -15,12 +15,12 @@ if __name__ == "__main__":
         userlist = []
 
         for t in tasks:
-            if task['userId'] == u['id']
-            userdata = {}
-            userdata['username'] = user
-            userdata['task'] = t['title']
-            userdata['completed'] = t['completed']
-            userlist.append(userdata)
+            if task['userId'] == u['id']:
+                userdata = {}
+                userdata['username'] = user
+                userdata['task'] = t['title']
+                userdata['completed'] = t['completed']
+                userlist.append(userdata)
         urdict[u['id']] = userlist
 
     with open("todo_all_employees.json", "w") as f:
