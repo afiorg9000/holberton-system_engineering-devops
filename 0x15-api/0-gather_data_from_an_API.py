@@ -14,7 +14,8 @@ if __name__ == "__main__":
                              params={'user': user,
                                      'completed': 'true'}).json()
 
-    print("Employee {} is done with tasks({}/{}):".
-          format(username, str(len(completed)), str(len(tasks))))
+    print("Employee", username, "is done with tasks(" +
+          str(len(completed)) + "/" + str(len(tasks)) + "):")
+
     for i in completed:
-        print("\t " + i['title'])
+        rint("\t " + i['title'])
