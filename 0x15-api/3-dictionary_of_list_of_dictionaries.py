@@ -15,7 +15,7 @@ if __name__ == "__main__":
         userlist = []
 
         for t in tasks:
-            if task['userId'] == u['id']:
+            if t['userId'] == u['id']:
                 userdata = {}
                 userdata['username'] = user
                 userdata['task'] = t['title']
