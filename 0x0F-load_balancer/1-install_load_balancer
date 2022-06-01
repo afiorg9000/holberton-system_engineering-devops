@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Redirect
+apt-get -y update
+apt-get -y install -y haproxy
+
+printf %s "
+frontend haproxy_frontend
+        bind *:80
+        mode http
+        default_backend haproxy_backend
+backend haproxy_backend
+        balance roundrobin
+        server 3533-web-01 35.196.90.62:80 check
+        server 3533-web-02 184.72.88.103:80 check
+" >> /etc/haproxy/haproxy.cfg
+
+echo "ENABLED=1" >> /etc/default/haproxy
+
+service haproxy start
