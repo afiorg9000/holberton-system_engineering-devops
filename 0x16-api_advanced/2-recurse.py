@@ -1,21 +1,20 @@
 #!/usr/bin/python3
 """recursive function that queries the Reddit API"""
-import requests
+from requests import request
 
 
-def recurse(subreddit, hot_list=[]):
-    url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
-    headers = {'User-agent': 'Python3'}
-    res = requests.get(url, headers=headers)
-
-    if res.status_code == 200:
-        data_json = res.json()['data']
-
-        for post in data_json['children']:
-            hot_list += [post['data']['title']]
-
-        if data_json['after'] is not None:
-            return recurse(subreddit, hot_list)
-        return hot_list[:-1]
-    else:
+def recurse(subreddit, hot_list=[], after=""):
+    """recursive function"""
+    url = "https://api.reddit.com/r/{}/hot?after={}".format(subreddit, after)
+    headers = {"User-Agent": "Python3"}
+    response = request("GET", url, headers=headers).json()
+    try:
+        hot = response['data']['children']
+        aftertmp = response['data']['after']
+        for i in hot:
+            hot_list.append(i['data']['title'])
+        if aftertmp is not None:
+            recurse(subreddit, hot_list, aftertmp)
+        return hot_list
+    except Exception:
         return None
