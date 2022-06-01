@@ -1,7 +1,6 @@
 0x18. Webstack monitoring
 =========================
-
--   By Sylvain Kalache, co-founder at Holberton School
+-   By Sylvain Kalache, co-founder at Holberton Schol
 
 #### In a nutshell...
 
