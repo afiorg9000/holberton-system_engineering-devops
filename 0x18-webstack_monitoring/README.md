@@ -148,3 +148,7 @@ Now create a dashboard with different metrics displayed in order to get a few di
 -   GitHub repository: `alx-system_engineering-devops`
 -   Directory: `0x18-webstack_monitoring`
 -   File: `2-setup_datadog`
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4f6fbe20ce94bae1c5582b293c9685e869ddfbfb
