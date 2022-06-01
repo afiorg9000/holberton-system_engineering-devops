@@ -1,7 +1,11 @@
 0x16. API advanced
 ==================
 
+<<<<<<< HEAD
 -   By Tim Britton - Cohort #1
+=======
+-   y Tim Britton - Cohort #1
+>>>>>>> c142c1cbfa5ffd7999bc093ce634eaf0eac60817
 
 ![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/314/WIxXad8.png)
 
@@ -251,3 +255,7 @@ bob@dylan $
 -   GitHub repository: `alx-system_engineering-devops`
 -   Directory: `0x16-api_advanced`
 -   File: `100-count.py`
+<<<<<<< HEAD
+=======
+B
+>>>>>>> c142c1cbfa5ffd7999bc093ce634eaf0eac60817
